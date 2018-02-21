@@ -1,0 +1,16 @@
+import subprocess
+
+#subprocess.call('net user zuzana.molnarova /domain ', shell=True)
+
+file='test.txt'
+fh=open(file)
+file_zapis='vystup.txt'
+
+for user in fh:
+    user = user.rstrip() #zmaze white characters
+    user=user.split() #rozdeli string(riadok) na list(pole)
+    print(user)
+    for k in user:
+        x = subprocess.call('net user ' + k + ' /domain >>'+file_zapis, shell=True)
+        #print(x)
+   
